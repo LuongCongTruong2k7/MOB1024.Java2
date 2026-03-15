@@ -53,7 +53,7 @@ public class VIPTicket extends Ticket{
 
 	@Override
 	public double calculateTotal() {
-		return super.calculateTotal() + getbasePrice() + this.serviceFee + this.giftComboPrice;
+		return super.calculateTotal() + this.serviceFee + this.giftComboPrice;
 	}
 	
 	@Override

@@ -32,7 +32,7 @@ public class StudentTicket extends Ticket{
 	
 	@Override
 	public double calculateTotal() {
-		return super.calculateTotal() + getbasePrice() - (this.getbasePrice() * this.discountRate);
+		return super.calculateTotal() - (this.getbasePrice() * this.discountRate);
 	}
 	
 	@Override
