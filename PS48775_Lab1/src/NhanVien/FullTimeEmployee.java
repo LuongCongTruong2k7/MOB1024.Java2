@@ -1,4 +1,4 @@
-package enity;
+package NhanVien;
 
 public class FullTimeEmployee extends Employee {
 	private double bonus;

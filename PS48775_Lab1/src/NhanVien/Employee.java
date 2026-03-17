@@ -1,4 +1,4 @@
-package enity;
+package NhanVien;
 
 public class Employee {
 	private String id;

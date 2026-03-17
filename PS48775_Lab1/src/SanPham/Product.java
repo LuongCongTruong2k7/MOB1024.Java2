@@ -1,4 +1,4 @@
-package enity;
+package SanPham;
 
 public class Product {
 	private String id;

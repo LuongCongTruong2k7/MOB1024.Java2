@@ -1,4 +1,4 @@
-package enity;
+package SanPham;
 
 public class ImportedProduct extends Product {
 	private double importTaxRate;

@@ -1,28 +1,33 @@
 package mainPackage;
 
+import NhanVien.*;
+
 import java.util.ArrayList;
-import enity.*;
 
 public class MainLab1_Bai2 {
     public static void main(String[] args) {
-        ArrayList<Employee> ListEmployee = new ArrayList<Employee>();
-
-        ListEmployee.add(new FullTimeEmployee("FT001", "John Doe", 5000, 1000, 200));
-        ListEmployee.add(new FullTimeEmployee("FT002", "Jane Smith", 6000, 1200, 100));
-        ListEmployee.add(new PartTimeEmployee("PT001", "Peter Jones", 0, 40, 20));
-        ListEmployee.add(new PartTimeEmployee("PT002", "Alice Brown", 0, 30, 25));
-        ListEmployee.add(new FullTimeEmployee("", "Invalid Employee", -100, -500, -100));
-
-        for (Employee e : ListEmployee) {
-            System.out.println(e.toString());
-            ;
-        }
-
-        Employee max = ListEmployee.get(0);
-        for (Employee e : ListEmployee) {
-            if (e.income() > max.income()) {
-                max = e;
+        ArrayList<Employee> listEmployee = new ArrayList<Employee>();
+        
+        listEmployee.add(new FullTimeEmployee("FT01", "Nguyen Van A", 10000000, 2000000, 500000));
+        listEmployee.add(new PartTimeEmployee("PT01", "Tran Thi B", 0, 80, 50000));   
+        listEmployee.add(new FullTimeEmployee("FT02", "Le Van C", -5000000, -100, 200000));
+        listEmployee.add(new Employee("", "No ID User", 3000000));
+        listEmployee.add(new PartTimeEmployee("PT02", "Expert Consultant", 0, 160, 200000));
+        
+        if (listEmployee.isEmpty()) {
+            System.out.println("Danh sách nhân viên đang trống.");
+        } else {
+            Employee max = listEmployee.get(0);
+            for (Employee e : listEmployee) {
+                if (e.income() > max.income()) {
+                    max = e;
+                }
             }
+            System.out.println("Danh sách nhân viên:");
+            for (Employee e : listEmployee) {
+            	System.out.println(e.toString());
+			}
+            System.out.println("Nhân viên có thu nhập cao nhất: " + max.toString());
         }
     }
 }

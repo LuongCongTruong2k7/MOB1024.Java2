@@ -1,4 +1,4 @@
-package enity;
+package NhanVien;
 
 public class PartTimeEmployee extends Employee {
 	private double workingHours;
