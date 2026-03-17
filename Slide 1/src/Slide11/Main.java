@@ -12,5 +12,5 @@ public class Main {
 			pet.sleep();
 			pet.sound();
 		}
-	}
+	} 
 }

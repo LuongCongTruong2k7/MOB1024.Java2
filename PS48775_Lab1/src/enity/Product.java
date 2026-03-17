@@ -4,7 +4,7 @@ public class Product {
 	private String id;
 	private String name;
 	private double basePrice;
-	
+
 	public Product() {
 	}
 
@@ -18,32 +18,36 @@ public class Product {
 		return id;
 	}
 
-	public void setId(String id) {
+	public boolean setId(String id) {
 		if (id != "") {
 			this.id = id;
-		} else {
-			this.id = "Unknown";
+			return true;
 		}
+		return false;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public boolean setName(String name) {
+		if (name != "") {
+			this.name = name;
+			return true;
+		}
+		return false;
 	}
 
 	public double getBasePrice() {
 		return basePrice;
 	}
 
-	public void setBasePrice(double basePrice) {
+	public boolean setBasePrice(double basePrice) {
 		if (basePrice >= 0) {
 			this.basePrice = basePrice;
-		}	else {
-			this.basePrice = 0;
+			return true;
 		}
+		return false;
 	}
 
 	public double finalPrice() {
@@ -52,6 +56,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", basePrice=" + basePrice + ", finalPrice =" + finalPrice() + "]";
+		return "Product [id=" + id + ", name=" + name + ", basePrice=" + basePrice + ", finalPrice =" + finalPrice()
+				+ "]";
 	}
 }

@@ -51,7 +51,7 @@ public class Ticket {
 			this.basePrice = basePrice;
 		} else {
 			do {
-				System.out.print("basePrice không được < 0 vui lòng nhập lại: ");
+				System.out.print("basePrice không được nhỏ hơn 0 vui lòng nhập lại: ");
 				basePrice = s.nextDouble();
 			} while (basePrice < 0);
 			this.basePrice = basePrice;

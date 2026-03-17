@@ -4,7 +4,7 @@ public class Employee {
 	private String id;
 	private String name;
 	private double basicSalary;
-	
+
 	public Employee() {
 	}
 
@@ -18,12 +18,12 @@ public class Employee {
 		return id;
 	}
 
-	public void setId(String id) {
+	public boolean setId(String id) {
 		if (id != "") {
 			this.id = id;
-		} else {
-			this.id = "Unknown";
+			return true;
 		}
+		return false;
 	}
 
 	public String getName() {
@@ -38,14 +38,14 @@ public class Employee {
 		return basicSalary;
 	}
 
-	public void setBasicSalary(double basicSalary) {
+	public boolean setBasicSalary(double basicSalary) {
 		if (basicSalary >= 0) {
 			this.basicSalary = basicSalary;
-		} else {
-			this.basicSalary = 0;
+			return true;
 		}
+		return false;
 	}
-	
+
 	public double income() {
 		return this.basicSalary;
 	}

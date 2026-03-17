@@ -24,9 +24,10 @@ public class StudentTicket extends Ticket{
 			this.discountRate = discountRate;
 		} else {
 			do {
-				System.out.print("discountRate phải nằm trong khoảng 0 đến 1 vui lòng nhập lại: ");
+				System.out.print("discountRate không được nhỏ hơn 0 và không được lớn hơn 1, vui lòng nhập lại: ");
 				discountRate = s.nextDouble();
-			} while (discountRate < 0 || discountRate > 1);
+			} while (discountRate < 0 && discountRate > 1);
+			this.discountRate = discountRate;
 		}
 	}
 	
