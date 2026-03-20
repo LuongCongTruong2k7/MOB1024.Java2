@@ -60,6 +60,7 @@ public class Vehicle {
 
 	@Override
 	public String toString() {
-		return String.format("id = %s, brand = %s, basePrice = %.2f, totalPrice = %.2f", id, brand, basePrice, totalPrice());
+		return String.format("id = %s, brand = %s, basePrice = %.2f, totalPrice = %.2f", id, brand, basePrice,
+				totalPrice());
 	}
 }
