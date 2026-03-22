@@ -1,36 +1,55 @@
 package NhanVien;
 
 public class Employee {
-	String id;
-	String name;
-	double salary;
+	private String id;
+	private String name;
+	private double salary;
+	
 	public Employee(String id, String name, double salary) {
-		this.id = id;
-		this.name = name;
-		this.salary = salary;
+		this.setId(id);
+		this.setName(name);
+		this.setSalary(salary);
 	}
+
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) {
+
+	public boolean setId(String id) {
+		if (id != null && !id.trim().isEmpty()) {
+			this.id = id;
+			return true;
+		}
 		this.id = id;
+		return false;
 	}
+
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public boolean setName(String name) {
+		if (name != null && !name.trim().isEmpty()) {
+			this.name = name;
+			return true;
+		}
+		return false;
 	}
+
 	public double getSalary() {
 		return salary;
 	}
-	public void setSalary(double salary) {
-		this.salary = salary;
+
+	public boolean setSalary(double salary) {
+		if (salary >= 0) {
+			this.salary = salary;
+			return true;
+		}
+		return false;
 	}
+
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
 	}
-	
-	
 }

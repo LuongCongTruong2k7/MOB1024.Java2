@@ -3,38 +3,51 @@ package SanPham;
 import SanPham.EnumSanPham.ProductCategory;
 
 public class Product {
-	String id;
-	String name;
-	double price;
-	ProductCategory category;
+	private String id;
+	private String name;
+	private double price;
+	private ProductCategory category;
 	
-	public Product(String id, String name, double price, ProductCategory category) {
-	    if (price < 0) throw new IllegalArgumentException("Giá sản phẩm không thể âm");
-	    if (category == null) throw new IllegalArgumentException("Danh mục không được để trống");
-	    
-	    this.id = id;
-	    this.name = name;
-	    this.price = price;
+	public Product(String id, String name, double price, ProductCategory category) {  
+	    this.setId(id);
+	    this.setName(name);
+	    this.setPrice(price);
 	    this.category = category;
 	}
 	
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public boolean setId(String id) {
+		if (id != "") {
+			this.id = id;
+			return true;
+		}
+		this.id = "Quên nhập id rồi Nàng";
+		return false;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public boolean setName(String name) {
+		if (name != "") {
+			this.name = name;
+			return true;
+		} else {
+			this.name = "Quên nhập tên rồi Nàng";
+			return false;
+		}
 	}
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public boolean setPrice(double price) {
+		if (price >= 0) {
+			this.price = price;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	public EnumSanPham.ProductCategory getCategory() {
 		return category;

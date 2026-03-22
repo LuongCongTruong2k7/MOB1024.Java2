@@ -3,17 +3,13 @@ package SinhVien;
 import SinhVien.EnumSinhVien.StudentType;
 
 public class Student {
-	String id;
-	String name;
-	EnumSinhVien.StudentType type;
+	private String id;
+	private String name;
+	private EnumSinhVien.StudentType type;
 	
-	public Student(String id, String name, StudentType type) {
-	    if (id == null || id.trim().isEmpty()) throw new IllegalArgumentException("ID không được để trống");
-	    if (name == null || name.trim().isEmpty()) throw new IllegalArgumentException("Tên không được để trống");
-	    if (type == null) throw new IllegalArgumentException("Loại sinh viên không được null");
-	    
-	    this.id = id;
-	    this.name = name;
+	public Student(String id, String name, StudentType type) { 
+	    this.setId(id);
+	    this.setName(name);
 	    this.type = type;
 	}
 
@@ -21,16 +17,27 @@ public class Student {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public boolean setId(String id) {
+		if (id != "") {
+			this.id = id;
+			return true;
+		}
+		this.id = "Quên nhập id rồi Nàng";
+		return false;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public boolean setName(String name) {
+		if (name != "") {
+			this.name = name;
+			return true;
+		} else {
+			this.name = "Quên nhập tên rồi Nàng";
+			return false;
+		}
 	}
 
 	public EnumSinhVien.StudentType getType() {

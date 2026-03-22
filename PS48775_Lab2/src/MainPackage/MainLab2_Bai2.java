@@ -22,21 +22,21 @@ public class MainLab2_Bai2 {
 		listProducts.add(new Product("P006", "Sữa tươi tiệt trùng", 1.2, ProductCategory.FOOD));
 		listProducts.add(new Product("P007", "Giày Sneaker Nike", 120.0, ProductCategory.CLOTHING));
 		listProducts.add(new Product("P008", "Tai nghe Sony", 350.00, ProductCategory.ELECTRONIC));
-		listProducts.add(new Product("P009", "Sản phẩm lỗi giá", 100.0, ProductCategory.ELECTRONIC));
-		listProducts.add(new Product("P010", "Sữa hết hạn", 0.0, ProductCategory.FOOD));
+		listProducts.add(new Product("P009", "Sản phẩm lỗi giá", -100.0, ProductCategory.ELECTRONIC));
+		listProducts.add(new Product("P010", "Sữa hết hạn", 0.0, null));
 		
-		for (Product product : listProducts) {
-			ProductCategory category = product.getCategory();
-			countProduct.put(category, countProduct.getOrDefault(category, 0) + 1);
-			totalPrice.put(category, totalPrice.getOrDefault(category, 0.0) + product.getPrice());
+		for (Product p : listProducts) {
+			System.out.println(p.toString());
 		}
 		
+		for (Product p : listProducts) {
+			ProductCategory pc = p.getCategory();
+			countProduct.put(pc, countProduct.getOrDefault(pc, 0) + 1);
+			totalPrice.put(pc, totalPrice.getOrDefault(pc, 0.0) + p.getPrice());
+		}
 		for (Map.Entry<ProductCategory, Integer> entry : countProduct.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
-		}
-		
-		for (Map.Entry<ProductCategory, Double> entry : totalPrice.entrySet()) {
-			System.out.println(entry.getKey() + ": " + entry.getValue());
+			System.out.println("Loại: " + entry.getKey() + ", Số Lượng " + entry.getValue() 
+			+ ", Tổng giá loại " + totalPrice.get(entry.getKey()));
 		}
 	}
 }

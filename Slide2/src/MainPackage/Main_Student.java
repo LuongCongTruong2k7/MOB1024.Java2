@@ -2,8 +2,10 @@ package MainPackage;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,25 +15,26 @@ import Slide2.Student;
 public class Main_Student {
 	public static void main(String[] args) {
 		List<Student> listStudents = new ArrayList<Student>();
-		Set<String> setStudents = new HashSet<String>();
+		Set<String> setStudents = new HashSet<>();
 
 		listStudents.add(new Student("SV01", "Nguyễn Văn A", 8.5));
 		listStudents.add(new Student("SV02", "Nguyễn Văn A", 7.5));
 		listStudents.add(new Student("SV03", "Nguyễn Văn A", 9.0));
+		listStudents.add(new Student("SV03", "Nguyễn Văn A", 9.0));
+		
+		setStudents.add("SV01");
+		setStudents.add("SV02");
+		setStudents.add("SV03");
+		setStudents.add("SV03");
+		setStudents.forEach(ten -> System.out.println(ten));
 
-		Comparator<Student> com = new Comparator<Student>() {
-			@Override
-			public int compare(Student o1, Student o2) {
-				return Double.compare(o2.score, o1.score);
-			}
-		};
+		
+//		Collections.sort(listStudents,(sv1,sv2) -> sv2.score.compareTo(sv1.score));
+//		for (Student sv : listStudents) {
+//			System.out.println(sv.toString());
+//		}
 
-		listStudents.sort(com);
-		for (Student sv : listStudents) {
-			System.out.println(sv.toString());
-		}
-
-
+		
 
 //		Student sv1 = new Student("SV04", "Nguyễn Văn A", 8.0);
 //		if (!setStudents.contains(sv1.studentId)) {

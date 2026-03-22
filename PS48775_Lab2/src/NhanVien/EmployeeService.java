@@ -1,41 +1,38 @@
 package NhanVien;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class EmployeeService {
-    private List<Employee> list = new ArrayList<>();
+    Map<String, Employee> lsMap = new HashMap<>();
 
-    public void add(Employee e) {
-        list.add(e);
+    public void addEmployee(Employee emp) {
+    	lsMap.put(emp.getId(), emp);
     }
 
-    public void show() {
-        if (list.isEmpty()) {
-            System.out.println("Danh sách nhân viên trống");
-            return;
-        }
-        for (Employee e : list) {
-            System.out.println(e);
-        }
+    public void displayAll() {
+    	for (Map.Entry<String, Employee> entry : lsMap.entrySet()) {
+    		System.out.println(entry.getValue().toString());
+    	}
     }
 
-    public Employee findById(String id) {
-        for (Employee e : list) {
-            if (e.getId().equalsIgnoreCase(id)) {
-                return e;
-            }
-        }
-        return null;
+    public void findById(String id) {
+		if (lsMap.containsKey(id)) {
+			System.out.println(lsMap.get(id).toString());
+		} else {
+			System.out.println("Không tìm thấy nhân viên với ID: " + id);
+		}
     }
 
     public void updateSalary(String id, double newSalary) {
-        Employee e = findById(id);
-        if (e != null) {
-            e.setSalary(newSalary);
-            System.out.println("Cập nhật lương thành công cho nhân viên: " + e.getName());
-        } else {
-            System.out.println("Không tìm thấy nhân viên với ID: " + id);
-        }
+    	if (lsMap.containsKey(id)) {
+			Employee emp = lsMap.get(id);
+			emp.setSalary(newSalary);
+			System.out.println("Cập nhật lương thành công cho nhân viên ID: " + id);
+		} else {
+			System.out.println("Không tìm thấy nhân viên với ID: " + id);
+		}
     }
+ 
 }
