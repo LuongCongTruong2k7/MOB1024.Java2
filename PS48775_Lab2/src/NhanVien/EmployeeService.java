@@ -26,13 +26,8 @@ public class EmployeeService {
     }
 
     public void updateSalary(String id, double newSalary) {
-    	if (lsMap.containsKey(id)) {
 			Employee emp = lsMap.get(id);
 			emp.setSalary(newSalary);
 			System.out.println("Cập nhật lương thành công cho nhân viên ID: " + id);
-		} else {
-			System.out.println("Không tìm thấy nhân viên với ID: " + id);
-		}
     }
- 
 }
