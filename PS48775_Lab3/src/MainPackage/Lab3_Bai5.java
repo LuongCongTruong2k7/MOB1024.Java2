@@ -23,25 +23,18 @@ public class Lab3_Bai5 {
         sv.add(new Student("SV008", "Trần Văn G", StudentType.PART_TIME, 2.7));
         sv.add(new Student("SV009", "Trần Văn H", StudentType.INTERNATIONAL, 3.3));
         sv.add(new Student("SV010", "Trần Văn I", StudentType.REGULAR, 2.6));
-        
-//        Lọc sinh viên hệ chính quy
-//        List<Student> regularStudents = sv.stream()
-//                                          .filter(s -> s.getType() == StudentType.REGULAR); 
-                                          // ❌ LỖI COMPILER: Type mismatch
-//        Cách sửa: Sử dụng collect() để đóng gói Stream thành List
-//        List<Student> regularStudents = sv.stream().filter(s -> s.getType() == StudentType.REGULAR).collect(Collectors.toList());
-        
 
-//        countType = sv.stream().collect(Collectors.groupingBy(Student::getType, Collectors.counting()));
-//        System.out.println(countType);
-//
-//        gpavgType = sv.stream()
-//                .collect(Collectors.groupingBy(Student::getType, Collectors.averagingDouble(Student::getGpa)));
-//        System.out.println(gpavgType);
-//
-//        StudentType type = sv.stream()
-//                .collect(Collectors.groupingBy(Student::getType, Collectors.averagingDouble(Student::getGpa)))
-//                .entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
-//        System.out.println("Loại sinh viên có GPA trung bình cao nhất: " + type);
+         countType = sv.stream().collect(Collectors.groupingBy(Student::getType,
+         Collectors.counting()));
+         System.out.println(countType);
+
+         gpavgType = sv.stream()
+         .collect(Collectors.groupingBy(Student::getType,
+         Collectors.averagingDouble(Student::getGpa)));
+         System.out.println(gpavgType);
+         
+         StudentType type = sv.stream().collect(Collectors.groupingBy(Student::getType,Collectors.averagingDouble(Student::getGpa)))
+        		 .entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
+         System.out.println("Loại sinh viên có GPA trung bình cao nhất: " + type);
     }
 }
