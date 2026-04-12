@@ -29,7 +29,7 @@ public class Main {
 			}
 			
 			System.out.println("-----------------------------------------------------");
-			System.out.println("Tổng số dòng lấy được: " + count);
+			System.out.println("Tổng số dòng lấy được: " + count);	
 			
 		} catch (SQLException e) {
 			System.out.println("Lỗi kết nối MySQL: " + e.getMessage());
